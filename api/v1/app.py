@@ -9,6 +9,16 @@ app.register_blueprint(app_views)
 app.config.update(JSONIFY_PRETTYPRINT_REGULAR=True)
 
 
+@app.errorhandler(404)
+def page_not_found(e):
+    return (jsonify({"error": "Not found"}), 404)
+
+
+def create_app(config_filename):
+    app.register_error_handler(404, page_not_found)
+    return app
+
+
 @app.teardown_appcontext
 def teardown(error):
     storage.close()
