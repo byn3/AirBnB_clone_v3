@@ -122,3 +122,5 @@ class TestGetandCount(unittest.TestCase):
         i = s.count()
         self.assertGreater(i, 0)
         s.close()
+        s = models.storage
+        s = models.storage
