@@ -81,7 +81,7 @@ class DBStorage:
         """
         oneObj = models.storage.all(cls)
         for key, value in oneObj.items():
-            getObj = cls + '.' + id
+            getObj = str(cls) + '.' + str(id)
             if key == getObj:
                 return value
         return None
