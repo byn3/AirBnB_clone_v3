@@ -93,29 +93,29 @@ class TestGetandCount(unittest.TestCase):
     @unittest.skipIf(models.storage_t != 'db', "not testing db storage")
     def test_get(self):
         """Test that save properly saves objects to file.json"""
-        storage = storage.reload()
+        s = models.storage
         state = State(name="California")
-        storage.new(state)
-        storage.save()
-        stateCali = list(storage.all("State").values())[0]
+        s.new(state)
+        s.save()
+        stateCali = list(s.all("State").values())[0]
         stateCaliID = stateCali.id
-        failure = storage.get("City", stateCaliID)
+        failure = s.get("City", stateCaliID)
         self.assertIsNone(failure)
-        failure = storage.get("State", 1)
+        failure = s.get("State", 1)
         self.assertIsNone(failure)
-        failure = storage.get("Poop", "1234")
+        failure = s.get("Poop", "1234")
         self.assertIsNone(failure)
-        success = storage.get("State", stateCaliID)
+        success = s.get("State", stateCaliID)
         self.assertIsInstance(success, State)
-        storage.close()
+        s.close()
 
     @unittest.skipIf(models.storage_t != 'db', "not testing db storage")
     def test_count(self):
         """Test that save properly saves objects to file.json"""
-        storage = storage.reload()
+        s = models.storage
         state = State(name="California")
-        storage.new(state)
-        storage.save()
-        i = storage.count()
+        s.new(state)
+        s.save()
+        i = s.count()
         self.assertGreater(i, 0)
-        storage.close()
+        s.close()
