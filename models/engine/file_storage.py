@@ -80,7 +80,7 @@ class FileStorage:
                 if key == getObj:
                     return value
         except:
-            print("Error in get function")
+            return None
         return None
 
     def count(self, cls=None):

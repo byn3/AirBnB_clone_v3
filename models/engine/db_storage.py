@@ -86,7 +86,7 @@ class DBStorage:
                 if key == getObj:
                     return value
         except:
-            print("Error in get function in DB storage")
+            return None
         return None
 
     def count(self, cls=None):
