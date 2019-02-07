@@ -73,14 +73,11 @@ class FileStorage:
         """ Gets all the objects of a class and returns the specific instance
         if an ID is given
         """
-        try:
-            oneObj = self.all(cls)
-            for key, value in oneObj.items():
-                getObj = cls + '.' + id
-                if key == getObj:
-                    return value
-        except:
-            return None
+        oneObj = self.all(cls)
+        for key, value in oneObj.items():
+            getObj = cls + '.' + id
+            if key == getObj:
+                return value
         return None
 
     def count(self, cls=None):
