@@ -79,14 +79,11 @@ class DBStorage:
         """ Gets the objects requested and if the id of the instance
         matches what is given, return that specific instance
         """
-        try:
-            oneObj = models.storage.all(cls)
-            for key, value in oneObj.items():
-                getObj = cls + '.' + id
-                if key == getObj:
-                    return value
-        except:
-            return None
+        oneObj = models.storage.all(cls)
+        for key, value in oneObj.items():
+            getObj = cls + '.' + id
+            if key == getObj:
+                return value
         return None
 
     def count(self, cls=None):
