@@ -1,0 +1,18 @@
+Get a State by it's ID
+---
+tags:
+  - State
+produces:
+  - application/json
+  - application/xml
+parameters:
+  - in: path
+    name: dict
+    description: JSON dict to post
+    type: json
+    required: true
+responses:
+  200:
+    description: OK
+    schema:
+      type: json

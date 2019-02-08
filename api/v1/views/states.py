@@ -35,6 +35,7 @@ def a_states_id(state_id):
 
 @app_views.route('/states/<state_id>', strict_slashes=False,
                  methods=["DELETE"])
+@swag_from("states.yml")
 def del_states_id(state_id):
     """ deletes a sate if given the id """
     thing = storage.all('State')
@@ -49,6 +50,7 @@ def del_states_id(state_id):
 
 
 @app_views.route('/states', strict_slashes=False, methods=['POST'])
+@swag_from("post_states.yml")
 def postStates():
     """ creates a new state """
     thing = request.get_json(silent=True)
@@ -64,6 +66,7 @@ def postStates():
 
 
 @app_views.route('/states/<state_id>', strict_slashes=False, methods=["PUT"])
+@swag_from("states.yml")
 def updateState(state_id):
     """ updates the state info, sopecifically name """
     # garbage = {"id", "created_at", "updated_at"}
