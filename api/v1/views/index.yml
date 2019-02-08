@@ -1,0 +1,18 @@
+Get a Index by it's ID
+---
+tags:
+  - Index
+produces:
+  - application/json
+  - application/xml
+parameters:
+  - in: path
+    name: index_id
+    description: ID of the Index to get
+    type: string
+    required: true
+responses:
+  200:
+    description: OK
+    schema:
+      type: string

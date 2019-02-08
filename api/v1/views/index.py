@@ -3,6 +3,7 @@
 from flask import jsonify
 from api.v1.views import app_views
 from models import storage
+from flasgger import swag_from
 
 
 @app_views.route('/status', strict_slashes=False)
@@ -12,6 +13,7 @@ def status():
 
 
 @app_views.route('/stats', strict_slashes=False)
+@swag_from("index.yml")
 def stats():
     """ displays how many objects and instances when called """
     ob_d = {"amenities": "Amenity", "cities": "City", "places": "Place",
