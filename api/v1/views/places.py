@@ -8,6 +8,7 @@ from models.state import State
 from models.city import City
 from models.amenity import Amenity
 from models.place import Place
+from flasgger import swag_from
 
 
 @app_views.route('/cities/<city_id>/places', strict_slashes=False,
@@ -28,6 +29,7 @@ def showPlace(city_id):
 @app_views.route('/places/<place_id>',
                  strict_slashes=False,
                  methods=['GET'])
+@swag_from("places.yml")
 def a_place_id(place_id):
     """ Gets the place and its id if any """
     i = storage.get("Place", place_id)
