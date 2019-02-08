@@ -8,11 +8,6 @@ from models.state import State
 from flasgger.utils import swag_from
 
 
-specs_dict = {"__class__": "object",
-                    "created_at": "Y-M-Dtime",
-                    "id": "state_id",
-                    "name": "state name",
-                    "updated_at": "Y-M-Dtime",}
 @app_views.route('/states', strict_slashes=False, methods=['GET'])
 def showStates():
     """ Shows all states in the file storage """
