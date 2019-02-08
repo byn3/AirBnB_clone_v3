@@ -10,6 +10,7 @@ from models.amenity import Amenity
 from models.user import User
 from models.place import Place
 from models.review import Review
+from flasgger import swag_from
 
 
 @app_views.route('/places/<place_id>/reviews',
@@ -31,6 +32,7 @@ def showReview(place_id):
 @app_views.route('/reviews/<review_id>',
                  strict_slashes=False,
                  methods=['GET'])
+@swag_from("reviews.yml")
 def a_review_id(review_id):
     """ Gets the review and its id if any """
     i = storage.get("Review", review_id)
