@@ -23,7 +23,7 @@ def showStates():
 
 
 @app_views.route('/states/<state_id>', strict_slashes=False, methods=['GET'])
-@swag_from(specs_dict)
+@swag_from("states.yml")
 def a_states_id(state_id):
     """
         This is the HBNB API
