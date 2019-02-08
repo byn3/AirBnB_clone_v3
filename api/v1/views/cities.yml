@@ -1,14 +1,14 @@
-Get a State by it's ID
+Get a City by it's ID
 ---
 tags:
-  - State
+  - City
 produces:
   - application/json
   - application/xml
 parameters:
   - in: path
-    name: state_id
-    description: ID of the State to get
+    name: city_id
+    description: ID of the City to get
     type: string
     required: true
 responses:

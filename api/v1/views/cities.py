@@ -6,7 +6,7 @@ from models import storage
 from models.base_model import BaseModel
 from models.state import State
 from models.city import City
-
+from flasgger import swag_from
 
 @app_views.route('/states/<state_id>/cities', strict_slashes=False,
                  methods=['GET'])
@@ -24,6 +24,7 @@ def showCities(state_id):
 
 
 @app_views.route('/cities/<city_id>', strict_slashes=False, methods=['GET'])
+@swag_from("cities.yml")
 def a_city_id(city_id):
     """ Gets the city and its id that is correlated """
     bayAireUh = storage.get("City", city_id)
