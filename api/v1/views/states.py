@@ -5,10 +5,11 @@ from api.v1.views import app_views
 from models import storage
 from models.base_model import BaseModel
 from models.state import State
-from flasgger.utils import swag_from
+from flasgger import swag_from
 
 
 @app_views.route('/states', strict_slashes=False, methods=['GET'])
+@swag_from("all_states.yml")
 def showStates():
     """ Shows all states in the file storage """
     count_l = []
