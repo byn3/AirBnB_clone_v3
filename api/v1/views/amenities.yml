@@ -1,0 +1,18 @@
+Get a Amenity by it's ID
+---
+tags:
+  - Amenity
+produces:
+  - application/json
+  - application/xml
+parameters:
+  - in: path
+    name: amenity_id
+    description: ID of the Amenity to get
+    type: string
+    required: true
+responses:
+  200:
+    description: OK
+    schema:
+      type: string

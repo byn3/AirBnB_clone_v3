@@ -7,6 +7,7 @@ from models.base_model import BaseModel
 from models.state import State
 from models.city import City
 from models.amenity import Amenity
+from flasgger import swag_from
 
 
 @app_views.route('/amenities', strict_slashes=False, methods=['GET'])
@@ -21,6 +22,7 @@ def showAmenity():
 @app_views.route('/amenities/<amenity_id>',
                  strict_slashes=False,
                  methods=['GET'])
+@swag_from("amenities.yml")
 def a_amenity_id(amenity_id):
     """ Gets the amenity and its id if any """
     i = storage.get("Amenity", amenity_id)
