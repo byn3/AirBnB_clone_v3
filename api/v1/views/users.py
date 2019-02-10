@@ -8,6 +8,7 @@ from models.state import State
 from models.city import City
 from models.amenity import Amenity
 from models.user import User
+from flasgger import swag_from
 
 
 @app_views.route('/users', strict_slashes=False, methods=['GET'])
@@ -22,6 +23,7 @@ def showUser():
 @app_views.route('/users/<user_id>',
                  strict_slashes=False,
                  methods=['GET'])
+@swag_from("users.yml")
 def a_user_id(user_id):
     """ Gets the user and its id if any """
     i = storage.get("User", user_id)
